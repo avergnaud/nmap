@@ -59,3 +59,5 @@ Host script results:
 
 Nmap done: 1 IP address (1 host up) scanned in 122.41 seconds
 ```
+
+Révision [https://medium.com/kernel-space/linux-fundamentals-a-to-z-of-a-sudoers-file-a5da99a30e7f](https://medium.com/kernel-space/linux-fundamentals-a-to-z-of-a-sudoers-file-a5da99a30e7f)
