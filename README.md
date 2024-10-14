@@ -2,6 +2,23 @@
 
 [https://tryhackme.com/](https://tryhackme.com/)
 
+## nmap01
+
+| sudo ? | commande | description (testé avec wireshark) |
+| ------------- | ------------- | ------------- |
+| sudo | nmap -iL | ... |
+| | nmap -iL | ... |
+| sudo | nmap -sL | ... |
+|| nmap -sL | ... |
+| sudo | nmap -sn | ... |
+|| nmap -sn | ... |
+| sudo | nmap -PR -sn | ... |
+|| nmap -PR -sn | ... |
+| sudo | nmap -PE -sn | ... |
+|| nmap -PE -sn | ... |
+| sudo | nmap -PP -sn | ... |
+|| nmap -PP -sn | ... |
+
 ## blue
 
 [https://tryhackme.com/r/room/blue](https://tryhackme.com/r/room/blue)
