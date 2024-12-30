@@ -15,10 +15,13 @@ Nmap's scanning process typically consists of two distinct phases:
 
 During host discovery: if the target does not respond to these probes, Nmap assumes the host is down and skips the port scanning phase. However you can skip this phase with the `-Pn` option, instructing Nmap to assume the target is alive and proceed directly to port scanning.
 
+
 During port scanning: Nmap sends packets to the 1000 most commonly used TCP ports and observes the target's responses to classify ports as:
  * Open: A SYN-ACK is received.
  * Closed: A RST is received.
  * Filtered: No response or an ICMP "destination unreachable" message is received.
+
+`nmap -p-` option will scan all TCP ports
 
 
 | sudo ? | commande | description |
