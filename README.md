@@ -25,6 +25,9 @@ During port scanning: Nmap sends packets to the 1000 most commonly used TCP port
 
 `nmap -F` will scan fewer ports (fast scan)
 
+`nmap -sU` will scan UDP ports
+
+
 | sudo ? | commande | description |
 | ------------- | ------------- | ------------- |
 | sudo | nmap -iL | ... |
