@@ -37,6 +37,9 @@ During port scanning: Nmap sends packets to the 1000 most commonly used TCP port
 
 `nmap -T<0,5>` for lower or faster exec. Normal is 3
 
+`nmap -oN results.txt`, `nmap -oX results.xml`
+
+
 | sudo ? | commande | description |
 | ------------- | ------------- | ------------- |
 | sudo | nmap -iL | ... |
