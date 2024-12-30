@@ -8,33 +8,19 @@ Nmap's scanning process typically consists of two distinct phases:
 1. Host Discovery: Determines if the target is alive (reachable on the network).
 2. Port Scanning: Identifies open ports on the target.
 
-*Host discovery*
+| sudo ? | commande | description (testé avec wireshark) |
+| ------------- | ------------- | ------------- |
+| sudo | nmap | *Host discovery* : cf nmap -sn. *Port Scanning* : Nmap uses a TCP SYN Scan (-sS)  |
+| | nmap | *Host discovery* : cf nmap -sn. *Port Scanning* : falls back to a TCP Connect Scan (-sT) |
 
-Before starting the port scan, Nmap checks whether the target is up (reachable). This is called host discovery, or "ping scan." By default, Nmap uses a combination of techniques:
- * ICMP Echo Request (like ping).
- * TCP SYN to port 443.
- * TCP ACK to port 80.
- * ICMP Timestamp Request (if other methods fail).
+During host discovery: if the target does not respond to these probes, Nmap assumes the host is down and skips the port scanning phase. However you can skip this phase with the -Pn option, instructing Nmap to assume the target is alive and proceed directly to port scanning.
 
-If the target does not respond to these probes, Nmap assumes the host is down and skips the port scanning phase.
-
-However you can skip this phase with the -Pn option, instructing Nmap to assume the target is alive and proceed directly to port scanning.
-
-*Port Scanning*
-
-Once Nmap determines that the host is up, it proceeds to scan ports on the target.
-
-Default Port Scan Type:
- * If you run the command as a privileged user (root/administrator), Nmap uses a TCP SYN Scan (-sS) by default.
- * If unprivileged, it falls back to a TCP Connect Scan (-sT).
-
-During port scanning, Nmap sends packets to the 1000 most commonly used TCP ports and observes the target's responses to classify ports as:
+During port scanning: Nmap sends packets to the 1000 most commonly used TCP ports and observes the target's responses to classify ports as:
  * Open: A SYN-ACK is received.
  * Closed: A RST is received.
  * Filtered: No response or an ICMP "destination unreachable" message is received.
 
 | sudo ? | commande | description (testé avec wireshark) |
-| ------------- | ------------- | ------------- |
 | sudo | nmap -iL | ... |
 | | nmap -iL | ... |
 | sudo | nmap -sL | ... |
