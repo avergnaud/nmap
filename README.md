@@ -27,6 +27,12 @@ During port scanning: Nmap sends packets to the 1000 most commonly used TCP port
 
 `nmap -sU` will scan UDP ports
 
+`nmap -sV` service Version scan
+
+`nmap -O` detects OS
+
+`nmap -sC` performs a script scan using the default set of scripts. It is equivalent to `--script=default`
+
 
 | sudo ? | commande | description |
 | ------------- | ------------- | ------------- |
