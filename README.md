@@ -23,6 +23,7 @@ During port scanning: Nmap sends packets to the 1000 most commonly used TCP port
 
 `nmap -p-` option will scan all TCP ports. `nmap -p80` or `nmap -p 80` will scan port 80. `nmap -p 80,445`. `nmap -p80-3000`...
 
+`nmap -F` will scan fewer ports (fast scan)
 
 | sudo ? | commande | description |
 | ------------- | ------------- | ------------- |
