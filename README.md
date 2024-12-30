@@ -21,7 +21,7 @@ During port scanning: Nmap sends packets to the 1000 most commonly used TCP port
  * Closed: A RST is received.
  * Filtered: No response or an ICMP "destination unreachable" message is received.
 
-`nmap -p-` option will scan all TCP ports
+`nmap -p-` option will scan all TCP ports. `nmap -p80` or `nmap -p 80` will scan port 80.
 
 
 | sudo ? | commande | description |
