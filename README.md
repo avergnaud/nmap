@@ -11,7 +11,7 @@ Nmap's scanning process typically consists of two distinct phases:
 | sudo ? | commande | description |
 | ------------- | ------------- | ------------- |
 | sudo | nmap | *Host discovery* : cf `nmap -sn`. *Port Scanning* : Nmap uses a TCP SYN Scan `-sS`  |
-| | nmap | *Host discovery* : cf nmap -sn. *Port Scanning* : falls back to a TCP Connect Scan `-sT` |
+| | nmap | *Host discovery* : cf `nmap -sn`. *Port Scanning* : falls back to a TCP Connect Scan `-sT` |
 
 During host discovery: if the target does not respond to these probes, Nmap assumes the host is down and skips the port scanning phase. However you can skip this phase with the `-Pn` option, instructing Nmap to assume the target is alive and proceed directly to port scanning.
 
