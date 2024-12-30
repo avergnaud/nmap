@@ -33,6 +33,9 @@ During port scanning: Nmap sends packets to the 1000 most commonly used TCP port
 
 `nmap -sC` performs a script scan using the default set of scripts. It is equivalent to `--script=default`
 
+`nmap -A` is `nmap -sV -O -sC`
+
+`nmap -T<0,5>` for lower or faster exec. Normal is 3
 
 | sudo ? | commande | description |
 | ------------- | ------------- | ------------- |
