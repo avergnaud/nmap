@@ -2,7 +2,9 @@
 
 [https://tryhackme.com/](https://tryhackme.com/)
 
-## nmap01
+## nmap
+
+default nmap scan: SYN scan on ~1000 well known ports
 
 | sudo ? | commande | description (testé avec wireshark) |
 | ------------- | ------------- | ------------- |
