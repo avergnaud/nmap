@@ -38,6 +38,22 @@ nmap -sn -PS 192.168.79.201
 
 
 ```
+nmap -sn -PS443 192.168.79.201
+```
+![nmap_unpriv_sn_PS443](./docs/nmap_unpriv_sn_PS443.png?raw=true)
+
+
+Aussi :
+```
+nmap -sn -PS1-1000 192.168.79.201
+```
+
+On voit que nmap s'arrête après 10 retours RST ACK
+
+![nmap_unpriv_sn_P1-1000](./docs/nmap_unpriv_sn_PS1-1000.png?raw=true)
+
+
+```
 sudo nmap -sn -PS 192.168.79.201
 ```
 ![nmap_priv_sn_PS](./docs/nmap_priv_sn_PS.png?raw=true)
