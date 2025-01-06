@@ -48,6 +48,8 @@ During port scanning: Nmap sends packets to the 1000 most commonly used TCP port
 || nmap -sL | ... |
 | sudo | nmap -sn | ICMP echo request, TCP SYN to port 443, TCP ACK to port 80, and an ICMP timestamp request. On a local ethernet network, ARP requests are used unless --send-ip was specified |
 || nmap -sn | only SYN packets are sent (using a connect call) to ports 80 and 443 |
+| sudo | nmap -sn -PS | ... |
+|| nmap -sn -PS | ... |
 | sudo | nmap -PR -sn | ... |
 || nmap -PR -sn | ... |
 | sudo | nmap -PE -sn | ... |
