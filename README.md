@@ -20,8 +20,6 @@ During host discovery: if the target does not respond to these probes, Nmap assu
 | ------------- | ------------- | ------------- |
 | sudo | nmap -sn | ICMP echo request, TCP SYN to port 443, TCP ACK to port 80, and an ICMP timestamp request. On a local ethernet network, ARP requests are used unless --send-ip was specified |
 || nmap -sn | only SYN packets are sent (using a connect call) to ports 80 and 443 |
-| sudo | nmap -sn -PS | ... |
-|| nmap -sn -PS | ... |
 
 
 ```
@@ -29,11 +27,40 @@ nmap -sn --send-ip 192.168.79.201
 ```
 ![nmap_unpriv_sn](./docs/nmap_unpriv_sn.png?raw=true)
 
+### pure ICMP "ping types" scans
+
+```
+nmap -sn -PE 192.168.79.201
+```
+
+Unprivileged nmap -sn always make a TCP handshake (connect call).
+
+![nmap_unpriv_sn_PE](./docs/nmap_unpriv_sn_PE.png?raw=true)
+
+
+```
+sudo nmap -sn -PE 192.168.79.201
+```
+
+On a local ethernet network, ARP requests are used unless --send-ip was specified
+
+![nmap_priv_sn_PE](./docs/nmap_priv_sn_PE.png?raw=true)
+
+
+```
+sudo nmap -sn -PE --send-ip 192.168.79.201
+```
+![nmap_priv_sn_PE_send-ip](./docs/nmap_priv_sn_PE_send-ip.png?raw=true)
+
+#### TCP SYN scan
 
 ```
 nmap -sn --send-ip -PS 192.168.79.201
 nmap -sn -PS 192.168.79.201
 ```
+
+Unprivileged nmap -sn always make a TCP handshake (connect call).
+
 ![nmap_unpriv_sn_PS](./docs/nmap_unpriv_sn_PS.png?raw=true)
 
 
@@ -56,6 +83,9 @@ On voit que nmap s'arrête après 10 retours RST ACK
 ```
 sudo nmap -sn -PS 192.168.79.201
 ```
+
+On a local ethernet network, ARP requests are used unless --send-ip was specified
+
 ![nmap_priv_sn_PS](./docs/nmap_priv_sn_PS.png?raw=true)
 
 
@@ -63,6 +93,67 @@ sudo nmap -sn -PS 192.168.79.201
 sudo nmap -sn -PS --send-ip  192.168.79.201
 ```
 ![nmap_priv_sn_PS_send-ip](./docs/nmap_priv_sn_PS_send-ip.png?raw=true)
+
+#### TCP ACK scan
+
+```
+nmap -sn -PA 192.168.79.201
+nmap -sn -PA --send-ip 192.168.79.201
+```
+
+Unprivileged nmap -sn always make a TCP handshake (connect call).
+
+![nmap_unpriv_sn_PA](./docs/nmap_unpriv_sn_PA.png?raw=true)
+
+
+```
+sudo nmap -sn -PA 192.168.79.201
+```
+
+On a local ethernet network, ARP requests are used unless --send-ip was specified
+
+![nmap_priv_sn_PA](./docs/nmap_priv_sn_PA.png?raw=true)
+
+
+```
+sudo nmap -sn -PA --send-ip 192.168.79.201
+```
+![nmap_priv_sn_PA_send-ip](./docs/nmap_priv_sn_PA_send-ip.png?raw=true)
+
+#### Methodology
+
+##### notes 1
+
+```
+sudo nmap -sn -v -T4 192.168.79.201
+```
+
+then
+```
+sudo nmap -sn -PS21,22,25,80,443,445,3389,8080 -T4 192.168.79.201
+```
+
+then
+```
+sudo nmap -sn -PS21,22,25,80,443,445,3389,8080 -PU137,138 -T4 192.168.79.201
+```
+
+##### notes 2
+
+```
+sudo nmap -sn -oN eth0_output_1.txt 10.1.0.0/16
+
+sudo nmap -sn -T5 -oG - 10.1.0.0/16
+
+sudo nmap -sn -T5 -oG eth0_output_2.txt 10.1.0.0/16
+
+awk '/Host:/ {print $2}' eth0_output_2.txt
+```
+
+Or
+```
+nmap -Pn -sV -p 80 demo.ine.local
+```
 
 
 ### port scanning
