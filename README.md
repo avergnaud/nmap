@@ -8,6 +8,10 @@ npx markmap-cli README.md
 
 ## sudo nmap
 
+Nmap's scanning process typically consists of two distinct phases:
+1. Host Discovery: Determines if the target is alive (reachable on the network).
+2. Port Scanning: Identifies open ports on the target.
+
 ### host discovery
 
 #### local network
@@ -38,12 +42,26 @@ npx markmap-cli README.md
 
 #### local network
 
-##### single IP
+##### use raw ethernet
+
+###### single IP
 
 - item
 - item
 
-##### IP range
+###### IP range
+
+- item
+- item
+
+##### use raw IP
+
+###### single IP
+
+- item
+- item
+
+###### IP range
 
 - item
 - item
@@ -62,16 +80,12 @@ npx markmap-cli README.md
 ---
 
 
-Nmap's scanning process typically consists of two distinct phases:
-1. Host Discovery: Determines if the target is alive (reachable on the network).
-2. Port Scanning: Identifies open ports on the target.
+
 
 | sudo ? | commande | description |
 | ------------- | ------------- | ------------- |
 | sudo | nmap | *Host discovery* : cf `nmap -sn`. *Port Scanning* : Nmap uses a TCP SYN Scan `-sS`  |
 | | nmap | *Host discovery* : cf `nmap -sn`. *Port Scanning* : falls back to a TCP Connect Scan `-sT` |
-
-
 
 During host discovery: if the target does not respond to these probes, Nmap assumes the host is down and skips the port scanning phase. However you can skip this phase with the `-Pn` option, instructing Nmap to assume the target is alive and proceed directly to port scanning.
 
