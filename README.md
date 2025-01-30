@@ -1,8 +1,67 @@
-# thm-notes
+---
+title: nmap mindmap
+markmap:
+  colorFreezeLevel: 2
+---
 
-[https://tryhackme.com/](https://tryhackme.com/)
+npx markmap-cli README.md
 
-## nmap
+## sudo nmap
+
+### host discovery
+
+#### local network
+
+##### single IP
+
+- item
+- item
+
+##### IP range
+
+- item
+- item
+
+#### external network
+
+- item
+- item
+
+### port scanning
+
+- item
+- item
+
+## (unprivileged) nmap
+
+### host discovery
+
+#### local network
+
+##### single IP
+
+- item
+- item
+
+##### IP range
+
+- item
+- item
+
+#### external network
+
+- item
+- item
+
+### port scanning
+
+- item
+- item
+
+
+---
+
+
 Nmap's scanning process typically consists of two distinct phases:
 1. Host Discovery: Determines if the target is alive (reachable on the network).
 2. Port Scanning: Identifies open ports on the target.
@@ -12,7 +71,7 @@ Nmap's scanning process typically consists of two distinct phases:
 | sudo | nmap | *Host discovery* : cf `nmap -sn`. *Port Scanning* : Nmap uses a TCP SYN Scan `-sS`  |
 | | nmap | *Host discovery* : cf `nmap -sn`. *Port Scanning* : falls back to a TCP Connect Scan `-sT` |
 
-### host discovery
+
 
 During host discovery: if the target does not respond to these probes, Nmap assumes the host is down and skips the port scanning phase. However you can skip this phase with the `-Pn` option, instructing Nmap to assume the target is alive and proceed directly to port scanning.
 
@@ -27,7 +86,6 @@ nmap -sn --send-ip 192.168.79.201
 ```
 ![nmap_unpriv_sn](./docs/nmap_unpriv_sn.png?raw=true)
 
-### pure ICMP "ping types" scans
 
 ```
 nmap -sn -PE 192.168.79.201
@@ -52,7 +110,6 @@ sudo nmap -sn -PE --send-ip 192.168.79.201
 ```
 ![nmap_priv_sn_PE_send-ip](./docs/nmap_priv_sn_PE_send-ip.png?raw=true)
 
-#### TCP SYN scan
 
 ```
 nmap -sn --send-ip -PS 192.168.79.201
@@ -94,7 +151,7 @@ sudo nmap -sn -PS --send-ip  192.168.79.201
 ```
 ![nmap_priv_sn_PS_send-ip](./docs/nmap_priv_sn_PS_send-ip.png?raw=true)
 
-#### TCP ACK scan
+
 
 ```
 nmap -sn -PA 192.168.79.201
@@ -120,9 +177,7 @@ sudo nmap -sn -PA --send-ip 192.168.79.201
 ```
 ![nmap_priv_sn_PA_send-ip](./docs/nmap_priv_sn_PA_send-ip.png?raw=true)
 
-#### Methodology
 
-##### notes 1
 
 ```
 sudo nmap -sn -v -T4 192.168.79.201
@@ -138,7 +193,6 @@ then
 sudo nmap -sn -PS21,22,25,80,443,445,3389,8080 -PU137,138 -T4 192.168.79.201
 ```
 
-##### notes 2
 
 ```
 sudo nmap -sn -oN eth0_output_1.txt 10.1.0.0/16
@@ -155,8 +209,6 @@ Or
 nmap -Pn -sV -p 80 demo.ine.local
 ```
 
-
-### port scanning
 
 During port scanning: Nmap sends packets to the 1000 most commonly used TCP ports and observes the target's responses to classify ports as:
  * Open: A SYN-ACK is received.
@@ -198,9 +250,6 @@ During port scanning: Nmap sends packets to the 1000 most commonly used TCP port
 | sudo | nmap -PP -sn | ... |
 || nmap -PP -sn | ... |
 
-## blue
-
-[https://tryhackme.com/r/room/blue](https://tryhackme.com/r/room/blue)
 
 ```
 map -sV --script=vulscan/scipag_vulscan/vulscan.nse 10.10.142.156
@@ -255,5 +304,3 @@ Host script results:
 
 Nmap done: 1 IP address (1 host up) scanned in 122.41 seconds
 ```
-
-Révision [https://medium.com/kernel-space/linux-fundamentals-a-to-z-of-a-sudoers-file-a5da99a30e7f](https://medium.com/kernel-space/linux-fundamentals-a-to-z-of-a-sudoers-file-a5da99a30e7f)
