@@ -25,7 +25,7 @@ Nmap done: 4 IP addresses (0 hosts up) scanned in 0.00 seconds
 
 ## host discovery
 
-See mind map [host-discovery.html](./docs/host-discovery.html?raw=true)
+See mind map [host-discovery.html](./host-discovery.html?raw=true)
 
 ## port scanning
 
