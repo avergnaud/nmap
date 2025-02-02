@@ -4,8 +4,6 @@ markmap:
   colorFreezeLevel: 10
 ---
 
-npx markmap-cli host-discovery.md
-
 # (unprivileged) nmap -sn
 
 ## local network
@@ -54,6 +52,14 @@ npx markmap-cli host-discovery.md
   ![nmap_unpriv_sn_PE_2](./docs/nmap_unpriv_sn_PE_2.png?raw=true)
   Unprivileged nmap -sn -PE always (try to) make a TCP handshake (connect call)  to port 80.
 
+##### `-PP` "ICMP Timestamp"
+
+- TODO
+
+##### `-PM` "ICMP address mask"
+
+- TODO
+
 ##### `-PS` "TCP SYN Ping"
 - 
   ```
@@ -95,7 +101,16 @@ npx markmap-cli host-discovery.md
 - TODO
 
 ##### `-PE` "ICMP echo"
-- 
+
+- TODO
+
+##### `-PP` "ICMP Timestamp"
+
+- TODO
+
+##### `-PM` "ICMP address mask"
+
+- TODO
 
 ##### `-PS` "TCP SYN Ping"
 - 
@@ -155,6 +170,14 @@ npx markmap-cli host-discovery.md
   ```
   ![priv_sn_PE_2](./docs/nmap_priv_sn_PE_2.png?raw=true)
   On a local ethernet network, ARP requests are used unless --send-ip was specified
+
+##### `-PP` "ICMP Timestamp"
+
+- TODO
+
+##### `-PM` "ICMP address mask"
+
+- TODO
 
 ##### `-PS` "TCP SYN Ping"
 
@@ -217,6 +240,14 @@ npx markmap-cli host-discovery.md
   ```
   ![nmap_priv_sn_PE_send-ip](./docs/nmap_priv_sn_PE_send-ip.png?raw=true)
   "ICMP echo discovery probes"
+
+##### `-PP` "ICMP Timestamp"
+
+- TODO
+
+##### `-PM` "ICMP address mask"
+
+- TODO
 
 ##### `-PS` "TCP SYN Ping"
 

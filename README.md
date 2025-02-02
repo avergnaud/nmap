@@ -25,12 +25,15 @@ Nmap done: 4 IP addresses (0 hosts up) scanned in 0.00 seconds
 
 ## host discovery
 
-See mind map [host-discovery.html](./host-discovery.html)
+"During host discovery: if the target does not respond to these probes, Nmap assumes the host is down and skips the port scanning phase."
+
+Generate the mindmap using `npx markmap-cli host-discovery.md`
 
 ## port scanning
 
 "Users can skip the discovery by disabling host discovery (-Pn)"
-...
+
+Generate the mindmap using `npx markmap-cli port-scanning.md`
 
 ## divers
 
@@ -39,9 +42,19 @@ See mind map [host-discovery.html](./host-discovery.html)
 sudo nmap -sn -v -T4 192.168.79.201
 ```
 
+### input list
+
+sudo nmap -iL
+nmap -iL
+
 ### output formats
+
+`nmap -T<0,5>` for lower or faster exec. Normal is 3
+
 ```
 sudo nmap -sn -oN eth0_output_1.txt 10.1.0.0/16
+
+nmap -oX results.xml
 
 sudo nmap -sn -T5 -oG - 10.1.0.0/16
 

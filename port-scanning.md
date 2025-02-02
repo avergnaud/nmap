@@ -4,11 +4,6 @@ markmap:
   colorFreezeLevel: 2
 ---
 
-npx markmap-cli port-scanning.md
-
-
-
-
 
 
 | sudo ? | commande | description |
@@ -16,12 +11,7 @@ npx markmap-cli port-scanning.md
 | sudo | nmap | *Host discovery* : cf `nmap -sn`. *Port Scanning* : Nmap uses a TCP SYN Scan `-sS`  |
 | | nmap | *Host discovery* : cf `nmap -sn`. *Port Scanning* : falls back to a TCP Connect Scan `-sT` |
 
-During host discovery: if the target does not respond to these probes, Nmap assumes the host is down and skips the port scanning phase. However you can skip this phase with the `-Pn` option, instructing Nmap to assume the target is alive and proceed directly to port scanning.
 
-| sudo ? | commande | description |
-| ------------- | ------------- | ------------- |
-| sudo | nmap -sn | ICMP echo request, TCP SYN to port 443, TCP ACK to port 80, and an ICMP timestamp request. On a local ethernet network, ARP requests are used unless --send-ip was specified |
-|| nmap -sn | only SYN packets are sent (using a connect call) to ports 80 and 443 |
 
 
 
@@ -50,14 +40,11 @@ During port scanning: Nmap sends packets to the 1000 most commonly used TCP port
 
 `nmap -A` is `nmap -sV -O -sC`
 
-`nmap -T<0,5>` for lower or faster exec. Normal is 3
 
-`nmap -oN results.txt`, `nmap -oX results.xml`
 
 | sudo ? | commande | description |
 | ------------- | ------------- | ------------- |
-| sudo | nmap -iL | ... |
-| | nmap -iL | ... |
+
 | sudo | nmap -sL | ... |
 || nmap -sL | ... |
 | sudo | nmap -sn | ICMP echo request, TCP SYN to port 443, TCP ACK to port 80, and an ICMP timestamp request. On a local ethernet network, ARP requests are used unless --send-ip was specified |
