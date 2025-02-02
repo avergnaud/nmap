@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.9/dist/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/styles/default.min.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.9/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.9/dist/index.js"></script><script>((r) => {
+          setTimeout(r);
+        })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"nmap mindmap","children":[{"content":"(unprivileged) nmap -Pn","children":[{"content":"TCP Connect Scan <code>-sT</code> (default)","children":[{"content":"\n<pre data-lines=\"11,14\"><code data-lines=\"11,14\"><span class=\"hljs-attribute\">nmap</span> -Pn <span class=\"hljs-number\">192.168.1.23</span>\n</code></pre>\n<img src=\"./docs/nmap_unpriv_Pn_ethernet_single_FULL.png?raw=true\" alt=\"nmap_unpriv_Pn_ethernet_single_FULL\"><br>\nFocus on port 80:<br>\n<img src=\"./docs/nmap_unpriv_Pn_ethernet_single.png?raw=true\" alt=\"nmap_unpriv_Pn_ethernet_single\"><br>\n\"The simple command nmap target scans 1,000 TCP ports on the host target\". TCP Connect Scan <code>-sT</code>","children":[],"payload":{"tag":"li","lines":"10,19"}}],"payload":{"tag":"h2","lines":"8,9"}},{"content":"TCP SYN Scan <code>-sS</code>","children":[{"content":"\n<pre data-lines=\"22,27\"><code data-lines=\"22,27\">nmap -Pn -sS <span class=\"hljs-number\">192.168</span>.<span class=\"hljs-number\">1.23</span> \nYou requested a scan <span class=\"hljs-keyword\">type</span> <span class=\"hljs-type\">which </span>requires root privileges.\nQUITTING!\n</code></pre>","children":[],"payload":{"tag":"li","lines":"21,28"}}],"payload":{"tag":"h2","lines":"19,20"}},{"content":"UDP scans <code>-sU</code>","children":[{"content":"\n<pre data-lines=\"31,36\"><code data-lines=\"31,36\">nmap -Pn -<span class=\"hljs-keyword\">sU</span> 192.168.1.23\nYou requested a scan <span class=\"hljs-keyword\">type</span> <span class=\"hljs-keyword\">which</span> requires root privileges.\nQUITTING!\n</code></pre>","children":[],"payload":{"tag":"li","lines":"30,37"}}],"payload":{"tag":"h2","lines":"28,29"}}],"payload":{"tag":"h1","lines":"6,7"}},{"content":"sudo nmap -Pn","children":[{"content":"TCP Connect Scan <code>-sT</code>","children":[{"content":"Same as unprivileged TCP Connect Scan <code>-sT</code>","children":[],"payload":{"tag":"li","lines":"41,43"}}],"payload":{"tag":"h2","lines":"39,40"}},{"content":"TCP SYN Scan <code>-sS</code> (default)","children":[{"content":"\n<pre data-lines=\"46,49\"><code data-lines=\"46,49\"><span class=\"hljs-attribute\">sudo</span> nmap -Pn <span class=\"hljs-number\">192.168.1.23</span>\n</code></pre>\n<img src=\"./docs/nmap_priv_Pn_ethernet_single.png?raw=true\" alt=\"nmap_priv_Pn_ethernet_single\"><br>\nFocus on port 80:<br>\n<img src=\"./docs/nmap_priv_Pn_ethernet_single_focus80.png?raw=true\" alt=\"nmap_priv_Pn_ethernet_single_focus80\"><br>\n\"SYN scan works against any compliant TCP stack rather than depending on idiosyncrasies of specific platforms as Nmap's FIN/NULL/Xmas, Maimon and idle scans do. It also allows clear, reliable differentiation between the open, closed, and filtered states.\"","children":[],"payload":{"tag":"li","lines":"45,54"}}],"payload":{"tag":"h2","lines":"43,44"}},{"content":"UDP scans <code>-sU</code>","children":[{"content":"\"UDP scan is activated with the -sU option. It can be combined with a TCP scan type such as SYN scan (-sS) to check both protocols during the same run.\"","children":[],"payload":{"tag":"li","lines":"56,60"}}],"payload":{"tag":"h2","lines":"54,55"}}],"payload":{"tag":"h1","lines":"37,38"}}]},{"colorFreezeLevel":2})</script>
+</body>
+</html>
