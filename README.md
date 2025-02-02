@@ -55,13 +55,13 @@ nmap -Pn -sV -p80 192.168.1.23
 
 ---
 
-enerate the mindmap using `npx markmap-cli port-scanning.md`
+Generate the mindmap using `npx markmap-cli port-scanning.md`
 
 ## no host discovery nor port scanning...
 
 "To skip host discovery and port scan, while still allowing NSE to run, use the two options -Pn -sn together"
 
-## NMAP SCRIPTING ENGINE (NSE)
+## nmap scripting engine (NSE)
 
 [https://nmap.org/book/nse.html](https://nmap.org/book/nse.html)
 
